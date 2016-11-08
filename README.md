@@ -1,5 +1,5 @@
 # Logstack
-Logstack is an Elastic Beanstalk application that provides the following functionality to help round out your ELK stack when using the AWS Elasticsearch service.
+Logstack is an Amazon Elastic Beanstalk application that provides the following functionality to help round out your ELK stack when using the AWS Elasticsearch service.
 
 - Logstash
 - AWS Elasticsearch Authentication Proxy
@@ -13,7 +13,7 @@ Logstash is a critical part of the ELK stack and the major component of Logstack
 In order to get Logstash up and running you must first do some simple configuration so that it can work in your AWS setup, simply follow these steps.
 
 1. Create a logstash configuration file
-  * We have provided the example-logstash.conf file to get you started. This example shows how you would take in logs from Filebeat agents, graphite, and our Candelstack service.
+  * We have provided the example-logstash.conf file to get you started. This example shows how you would take in logs from Filebeat agents, graphite, and our Candlestack service.
   * If you have multiple environments in AWS, for example a DEV and PROD environment we recommend having a configuration file for each environment and prefix the file name with your environment name. This would then allow you to use Elastic Beanstalk environment variables as part of your setup to ensure the correct configuration file is used by Logstash.
 2. Modify the `start-logstash.sh` script
   * You must make the necessary modifications to this script so that the cfg variable has the correct config file name.
@@ -51,7 +51,7 @@ In order to get the AWS Elasticsearch Authentication Proxy running you must firs
 3. This is optional but we also recommend you create a user friendly Route 53 CNAME record that points to an Elasticbeanstalk environment URL so that users need only remember that user friendly URL and you can bring up and down different Elasticbeanstalk environments behind the scenes. To redirect users to a new environment you simply swap Elasticbeanstalk environment URLs.
 
 ## AWS Elasticsearch RSS Feed
-Alot of times you want to be able to monitor your application logs with out actually having to constaly go and visit Kibana in a browser. To that end RSS is a great option to get a direct feed of the logs you care to monitor such as errors. To support this we have developed an RSS servlet that only requires you to create a Kibana dashboard of the logs you want to monitor via an RSS feed.
+Alot of times you want to be able to monitor your application logs with out actually having to constantly go and visit Kibana in a browser. To that end RSS is a great option to get a direct feed of the logs you care to monitor such as errors. To support this we have developed an RSS servlet that only requires you to create a Kibana dashboard of the logs you want to monitor via an RSS feed.
 
 ### Configuration
 In order to get the AWS Elasticsearch RSS Feed running you must first do some simple configuration so that it can work in your AWS setup, simply follow these steps.
