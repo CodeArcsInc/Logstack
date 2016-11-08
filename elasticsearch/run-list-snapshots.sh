@@ -1,0 +1,6 @@
+#! /bin/bash
+
+REGION="$TODO_AWS_REGION"
+ENDPOINT="$TODO_ELASTICSEARCH_ENDPOINT"
+
+./list-snapshots.py -r $REGION -e $ENDPOINT
