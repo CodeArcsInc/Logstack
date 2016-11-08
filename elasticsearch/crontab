@@ -1,0 +1,2 @@
+5 0 * * * /opt/elasticsearch/run-create-snapshot.sh >> /var/log/cron.log 2>&1
+0 1 * * * /opt/elasticsearch/delete-old-indices.sh >> /var/log/cron.log 2>&1
