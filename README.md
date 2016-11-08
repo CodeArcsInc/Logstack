@@ -51,7 +51,7 @@ In order to get the AWS Elasticsearch Authentication Proxy running you must firs
 3. This is optional but we also recommend you create a user friendly Route 53 CNAME record that points to an Elasticbeanstalk environment URL so that users need only remember that user friendly URL and you can bring up and down different Elasticbeanstalk environments behind the scenes. To redirect users to a new environment you simply swap Elasticbeanstalk environment URLs.
 
 ## AWS Elasticsearch RSS Feed
-Alot of times you want to be able to monitor your application logs with out actually having to constantly go and visit Kibana in a browser. To that end RSS is a great option to get a direct feed of the logs you care to monitor such as errors. To support this we have developed an RSS servlet that only requires you to create a Kibana dashboard of the logs you want to monitor via an RSS feed.
+A lot of times you want to be able to monitor your application logs with out actually having to constantly go and visit Kibana in a browser. To that end RSS is a great option to get a direct feed of the logs you care to monitor such as errors. To support this we have developed an RSS servlet that only requires you to create a Kibana dashboard of the logs you want to monitor via an RSS feed.
 
 ### Configuration
 In order to get the AWS Elasticsearch RSS Feed running you must first do some simple configuration so that it can work in your AWS setup, simply follow these steps.
@@ -63,7 +63,7 @@ In order to get the AWS Elasticsearch RSS Feed running you must first do some si
  * The URL is simply https://$LOGSTACK_URL/rss?dashboard=$DASHBOARD_NAME
  
 ## AWS Elasticsearch Backup/Maintenance Tools
-Last but not least when using the AWS Elasticsearch service you get automated snapshots but these are likely inadequate for your support needs, which is where the AWS Elasticsearch Backup/Maintenance Tools comes in. These tools when properly configured allow you to create manual snapshots that run whenever you want and you can restore the created snapshots to any AWS Elasticsearch domain. The tools will also perform any necessary maintenance on the Elasticsearch indices, such as deleting old indices that are no longer used.
+Last but not least when using the AWS Elasticsearch service you get automated snapshots but these are likely inadequate for your support needs, which is where the AWS Elasticsearch Backup/Maintenance Tools comes in. These tools, when properly configured, allow you to create manual snapshots that run whenever you want and you can restore the created snapshots to any AWS Elasticsearch domain. The tools will also perform any necessary maintenance on the Elasticsearch indices, such as deleting old indices that are no longer used.
 
 ### Configuration
 In order to the AWS Elasticsearch Backup/Maintenance Tools running you must first do the following configurations steps.
