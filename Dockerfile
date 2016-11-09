@@ -22,7 +22,8 @@ RUN sudo apt-get install -y python-pip &&\
 	pip install -U boto &&\
 	pip install -U elasticsearch-curator==3.5.1 &&\
 	chmod 0644 /etc/cron.d/elasticsearch-cron &&\
-	touch /var/log/cron.log
+	touch /var/log/cron.log &&\
+	crontab /etc/cron.d/elasticsearch-cron
 
 # Add the necessary files for the proxy
 ADD proxy /opt/proxy
