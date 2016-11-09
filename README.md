@@ -81,5 +81,6 @@ In order to the AWS Elasticsearch Backup/Maintenance Tools running you must firs
  * Replace the `$TODO_AWS_REGION`, `$TODO_S3_BUCKET`, `$TODO_AWS_ROLE_ARN`, and `$TODO_ELASTICSEARCH_ENDPOINT` variables with the relevant pieces of information based off your AWS setup and the actions took you in step 1.
 5. Modify the '/elasticsearch/run-list-snapshots.sh` script
  * Replace the `$TODO_AWS_REGION` and `$TODO_ELASTICSEARCH_ENDPOINT` variables with the relevant pieces of information based off your AWS setup.
+ 6. Optionally you can modify the `/elasticsearch/crontab` file to set when the snapshot creations and indice deletions occur
  
 _**NOTE: In the above scripts if you have multiple environments you will have to take similar steps as in the above instructions to account for the multiple environments**_
