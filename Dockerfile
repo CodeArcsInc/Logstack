@@ -15,15 +15,11 @@ RUN /opt/logstash/bin/plugin install logstash-output-amazon_es &&\
 
 # Add the necessary files for Elasticsearch
 ADD elasticsearch /opt/elasticsearch
-ADD elasticsearch/crontab /etc/cron.d/elasticsearch-cron
 
-# Install the various pieces of python code we need and schedule cron to execute daily snapshots
+# Install the various pieces of python code we need
 RUN sudo apt-get install -y python-pip &&\
 	pip install -U boto &&\
-	pip install -U elasticsearch-curator==3.5.1 &&\
-	chmod 0644 /etc/cron.d/elasticsearch-cron &&\
-	touch /var/log/cron.log &&\
-	crontab /etc/cron.d/elasticsearch-cron
+	pip install -U elasticsearch-curator==3.5.1
 
 # Add the necessary files for the proxy
 ADD proxy /opt/proxy
@@ -39,6 +35,9 @@ ADD start-rss.sh /opt/
 # Add the necessary files for supervisor
 ADD supervisord.conf /etc/supervisor/supervisord.conf
 
+# Add the necessary files for cron
+ADD start-cron.sh /opt/
+
 # Expose the container port and launch supervisor
 EXPOSE 9090
-CMD cron && /opt/elasticsearch/run-create-snapshot-repository.sh && supervisord -c /etc/supervisor/supervisord.conf
+CMD /opt/start-cron.sh && /opt/elasticsearch/run-create-snapshot-repository.sh && supervisord -c /etc/supervisor/supervisord.conf

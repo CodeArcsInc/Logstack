@@ -1,0 +1,8 @@
+#! /bin/bash
+
+ENV=$1
+REGION="$TODO_AWS_REGION"
+SNAPSHOT="$TODO_SNAPSHOT_NAME"
+ENDPOINT="$TODO_ELASTICSEARCH_ENDPOINT"
+
+/opt/elasticsearch/create-snapshot.py -r $REGION -e $ENDPOINT -s $SNAPSHOT
